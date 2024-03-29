@@ -35,6 +35,7 @@
 
 1. 安装Python开发环境（`3.7.2`以上）
 2. 安装 graphviz （`sudo yum install graphviz` 、 `pip3 install graphviz`）
+    提示：windows中需到https://graphviz.org/download/下载安装graphviz，并配置环境变量
 3. 安装 flask （`pip3 install flask`）
 4. 安装openpyxl（`pip3 install openpyxl`）
 5. 安装 gevent (`pip3 install gevent`)
