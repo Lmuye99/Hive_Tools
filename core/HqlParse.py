@@ -140,7 +140,7 @@ class HqlParse(object):
                 c_idx, columns = stmt.token_next_by(idx=c_idx, i=sqlparse.sql.IdentifierList)
                 if columns:
                     for column in columns:
-                        if not (column.match(sqlparse.tokens.Punctuation, ',')):
+                        if not (column.match(sqlparse.tokens.Punctuation, ',')) and column.value.strip() != '':
                             # print(column.value.strip())
                             target_columns.append(column.value.strip())
             while (idx):
@@ -165,6 +165,8 @@ class HqlParse(object):
                 while com_idx and (com_idx < next_idx):
                     com_idx, com_par = stmt.token_next_by(idx=com_idx, end=next_idx + 1, i=sqlparse.sql.Comparison)
                     #print(com_idx, com_par)
+                    if next_idx == 9999:
+                        next_idx = com_idx
                     if (com_par):
                         res_list.append(com_par.value)
                 tmp['res'] = res_list
